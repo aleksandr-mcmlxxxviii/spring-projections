@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003
+      author: developer
+      changes:
+        - sql:
+            sql: |
+              -- Департаменты
+              INSERT INTO departments (name) VALUES 
+              ('IT Department'),
+              ('HR Department'),
+              ('Sales Department'),
+              ('Marketing Department'),
+              ('Finance Department')
+              ON CONFLICT (id) DO NOTHING;
+              
+              -- Сотрудники (с зарплатами)
+              INSERT INTO employees (first_name, last_name, position, salary, department_id) VALUES 
+              -- IT Department
+              ('Иван', 'Иванов', 'Java Developer', 5000.00, 1),
+              ('Петр', 'Петров', 'Team Lead', 7000.00, 1),
+              ('Мария', 'Сидорова', 'QA Engineer', 4500.00, 1),
+              ('Анна', 'Кузнецова', 'DevOps', 6000.00, 1),
+              ('Алексей', 'Козлов', 'Backend Developer', 5200.00, 1),
+              ('Ольга', 'Новикова', 'Frontend Developer', 4800.00, 1),
+              ('Дмитрий', 'Морозов', 'System Administrator', 5500.00, 1),
+              ('Екатерина', 'Волкова', 'Project Manager', 6500.00, 1),
+              ('Сергей', 'Соколов', 'Senior Java Developer', 8000.00, 1),
+              ('Татьяна', 'Лебедева', 'Technical Writer', 4200.00, 1),
+              
+              -- HR Department
+              ('Елена', 'Смирнова', 'HR Manager', 5500.00, 2),
+              ('Андрей', 'Попов', 'Recruiter', 4000.00, 2),
+              ('Светлана', 'Васильева', 'HR Generalist', 4300.00, 2),
+              
+              -- Sales Department
+              ('Максим', 'Новиков', 'Sales Manager', 6000.00, 3),
+              ('Юлия', 'Федорова', 'Sales Representative', 4500.00, 3),
+              ('Владимир', 'Морозов', 'Account Executive', 5000.00, 3),
+              
+              -- Marketing Department
+              ('Наталья', 'Павлова', 'Marketing Manager', 5800.00, 4),
+              ('Константин', 'Степанов', 'SEO Specialist', 4700.00, 4),
+              ('Ирина', 'Николаева', 'Content Manager', 4400.00, 4),
+              
+              -- Finance Department
+              ('Александр', 'Михайлов', 'Financial Analyst', 6200.00, 5),
+              ('Олег', 'Егоров', 'Accountant', 5100.00, 5);

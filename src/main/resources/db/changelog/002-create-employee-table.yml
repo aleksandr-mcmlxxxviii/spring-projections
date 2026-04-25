@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002
+      author: developer
+      changes:
+        - createTable:
+            tableName: employees
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: position
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: salary
+                  type: DECIMAL(10,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: department_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_employee_department
+                    references: departments(id)
+                    nullable: false
+                    unique: false
+        - createIndex:
+            tableName: employees
+            indexName: idx_employees_full_name
+            columns:
+              - column:
+                  name: last_name
+              - column:
+                  name: first_name

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: SpringProjections
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 20
+
+logging:
+  level:
+    root: INFO
+    sql: INFO
+
+server:
+  port: 8080
