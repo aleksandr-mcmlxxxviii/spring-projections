@@ -1,9 +1,14 @@
 package com.mvc.springprojections;
 
-import org.springframework.boot.SpringApplication;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
-public class TestSpringProjectionsApplication {
-    public static void main(String[] args) {
-        SpringApplication.from(SpringProjectionsApplication::main).with(TestcontainersConfiguration.class).run(args);
+@SpringBootTest
+@ActiveProfiles("test")
+class TestSpringProjectionsApplication {
+
+    @Test
+    void contextLoads() {
     }
 }
